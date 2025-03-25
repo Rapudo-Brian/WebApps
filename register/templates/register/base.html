@@ -15,7 +15,6 @@
                             <a class="web-link" href="{% url 'home' %}">Web Payment Service</a>
                         {% if user.is_authenticated %}
                             <a href="{% url 'home' %}">Home</a>
-                            <a href="{% url 'admin' %}">Admin.</a>
                             <a href="{% url 'dashboard' %}">Account</a>
                             <a href="{% url 'logout' %}">Logout</a>
                         {% else %}
