@@ -76,3 +76,51 @@ p a:hover {
 }
 
 
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 90%;
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .btn-primary {
+        font-size: 18px;
+        padding: 8px 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        max-width: 95%;
+        padding: 15px;
+        margin-top: 30px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .btn-primary {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
