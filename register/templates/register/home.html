@@ -11,10 +11,10 @@
 {% block content %}
 <div class="container">
     <h2>Welcome, {{ user.username }}</h2>
-    <p>Log in as an  <a href="http://127.0.0.1:8000/admin/"><b>Admin.</b></a><b>    (<i>ONLY ACCESSIBLE TO SITE ADMINISTRATOR.)</i></b></p>
+    <p>Log in as an  <a href="{% url 'admin' %}"><b>Admin.</b></a><b>    (<i>ONLY ACCESSIBLE TO SITE ADMINISTRATOR.)</i></b></p>
     <p>Transact with the best.</p>
     <p><strong>YOUR EMAIL:</strong>   {{ user.email }}.</p>
     <p><strong>Wallet Balance:</strong>   {{ user.balance }} {{ user.currency }}.</p>
-    <p>Click on this link <a href="http://127.0.0.1:8000/payapp/dashboard/">account</a> to manage your <strong>Transactions.</strong></p>
+    <p>Click on this link <a href="{% url 'dashboard' %}">Account</a> to manage your <strong>Transactions.</strong></p>
 </div>
 {% endblock %}
