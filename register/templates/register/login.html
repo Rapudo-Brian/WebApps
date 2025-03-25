@@ -1,0 +1,24 @@
+{% extends 'register/base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'register/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Login</button>
+    </form>
+    <p >Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+</div>
+<footer class="footer">
+    <p>© WebApp2025 Payment Service</p>
+</footer>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Request Money</title>
+    <link rel="stylesheet" href="{% static 'payapp/request_money.css' %}">
+</head>
+<body>
+    <h1>Request Money</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label><b>Recipient Email: </b></label>
+        <input type="email" name="recipient_email" required placeholder="example@gmail.com"> <br> <br> <br>
+        <label><b>Amount: </b></label>
+        <input type="number" name="amount" step="0.01" required placeholder="00.00"> <br> <br> <br>
+        <button class="rst" type="submit">Request</button>
+    </form>
+</body>
+</html>

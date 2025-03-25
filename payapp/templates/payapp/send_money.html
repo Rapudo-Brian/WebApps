@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Send Money</title>
+    <link rel="stylesheet" href="{% static 'payapp/send_money.css' %}">
+</head>
+<body>
+    <h1>Send Money</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label><strong>Recipient Email:</strong></label>
+        <input type="email" name="recipient_email" required placeholder="example@gmail.com"><br> <br> <br> <br>
+        <label><strong>Amount:</strong></label>
+        <input type="number" name="amount" step="0.01" required placeholder="00.00"> <br> <br> <br> <br>
+        <button type="submit" class="snd">Send</button>
+    </form>
+</body>
+</html>

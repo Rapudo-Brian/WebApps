@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manage Requests</title>
+    </head>
+    <body>
+        <h2>Pending Requests</h2>
+        <ul>
+            {% for request in pending_requests %}
+                <li>{{ request.sender }} requested £{{ request.amount }}
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="transaction_id" value="{{ request.id }}">
+                        <button type="submit" name="action" value="approve">Approve</button>
+                        <button type="submit" name="action" value="reject">Reject</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

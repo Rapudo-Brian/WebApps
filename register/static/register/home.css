@@ -1,0 +1,26 @@
+/* General Page Styling */
+body {
+    font-family: 'Arial', sans-serif;
+}
+/* Container Styling */
+.container {
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 4px 8px 10px rgb(144, 238, 144);
+    margin-top: 200px;
+    text-align: center;
+}
+/* Heading */
+h2 {
+    color: green;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+p {
+    font-style: italic;
+    font-size: 20px;
+}
+

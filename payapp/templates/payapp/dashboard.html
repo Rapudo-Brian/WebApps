@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="{% static 'payapp/dashboard.css' %}">
+    </head>
+    <body>
+      <div class="dash">
+          <h2>Welcome, {{ request.user.username }}</h2>
+          <p class="p">> Balance: £{{ balance }}</p>
+          <p>> You can either <strong>send Money</strong> or <strong>request money</strong> from other registered users.</p>
+          <p>> You can also either <i>accept</i> or <i>decline</i> a request from other registered users under <strong>Manage Requests.</strong></p>
+          <p><strong>NOTE:  </strong> When you <mark>ACCEPT</mark> a transaction request from a registered user, the amount requested by that user will be automatically deducted from your account and will be credited to the requesting user.</p>
+          <p>> Transactions are only possible amongst registered users.</p>
+          <p>> You will be able to see your transaction history under <strong>Transactions.</strong></p>
+          <div class="lks">
+              <a href="{% url 'send_money' %}">Send Money</a> |
+              <a href="{% url 'request_money' %}">Request Money</a> |
+              <a href="{% url 'manage_requests' %}">Manage Requests</a>
+              <a class="home" href="{% url 'home' %}">Home</a>
+          </div>
+          <p class="hm">> Click on this link   <a href="http://127.0.0.1:8000/home/"><strong>Home</strong></a>   to go back to home page.</p>
+          <h3>Transactions</h3>
+          <ul>
+              {% for transaction in transactions %}
+              <li>{{ transaction.sender }} -> {{ transaction.recipient }} ({{ transaction.amount }}) - {{ transaction.status }}</li>
+              {% endfor %}
+          </ul>
+      </div>
+    <footer>
+         <p>© WebApp2025 Payment Service</p>
+    </footer>
+    </body>
+</html>
+<!--http://127.0.0.1:8000/payapp/dashboard/-->
+
+<!--http://127.0.0.1:8000/payapp/manage_requests/-->
+
+<!--http://127.0.0.1:8000/payapp/request_money/-->
+
+<!--http://127.0.0.1:8000/payapp/send_money/-->
