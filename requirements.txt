@@ -6,3 +6,4 @@ packaging==24.2
 setuptools==78.0.2
 wheel==0.45.1
 requests==2.31.0
+requests==2.31.0
