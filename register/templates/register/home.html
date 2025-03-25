@@ -11,7 +11,6 @@
 {% block content %}
 <div class="container">
     <h2>Welcome, {{ user.username }}</h2>
-    <p>Log in as an  <a href="{% url 'admin' %}"><b>Admin.</b></a><b>    (<i>ONLY ACCESSIBLE TO SITE ADMINISTRATOR.)</i></b></p>
     <p>Transact with the best.</p>
     <p><strong>YOUR EMAIL:</strong>   {{ user.email }}.</p>
     <p><strong>Wallet Balance:</strong>   {{ user.balance }} {{ user.currency }}.</p>
