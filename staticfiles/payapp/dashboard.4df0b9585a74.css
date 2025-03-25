@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.dash {
+    padding-left: 300px;
+}
+h2, h3 {
+    color: green;
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+.lks {
+    max-width: 800px;
+    border: 1px solid green;
+    box-shadow: 2px 4px 6px green;
+    display: flex;
+    justify-content:space-around;
+    border-radius: 6px;
+    padding: 8px;
+   margin-top: 50px;
+
+}
+.hm {
+    font size: 30px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+a {
+    color: green;
+}
+a:hover{
+    color: red;
+}
+
+.p {
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+footer {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 10px;
+    margin-top:210px;
+    position: fixed;
+    width: 100%;
+    background-color: green;
+    text-decoration: underline
+}
