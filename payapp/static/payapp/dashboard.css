@@ -48,3 +48,88 @@ footer {
     background-color: green;
     text-decoration: underline
 }
+
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .dash {
+        padding-left: 150px;
+    }
+
+    h2, h3 {
+        font-size: 35px;
+    }
+
+    .lks {
+        max-width: 90%;
+    }
+
+    .hm {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dash {
+        padding-left: 50px;
+        padding-right: 50px;
+        text-align: center;
+    }
+
+    h2, h3 {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .lks {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .hm {
+        font-size: 22px;
+        margin-top: 30px;
+    }
+
+    footer {
+        font-size: 20px;
+        margin-top: 100px;
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dash {
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+    }
+
+    h2, h3 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    .lks {
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .hm {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+    .p {
+        font-size: 16px;
+    }
+
+    footer {
+        font-size: 18px;
+        margin-top: 80px;
+        padding: 6px;
+    }
+}

@@ -1,7 +1,8 @@
 /* General Styling */
 body {
     font-family: 'Arial', sans-serif;
-}
+    background-color: #eef2f7;
+    }
 
 /* Centered Login Container */
 .container {
@@ -20,6 +21,7 @@ h2 {
     color: rgb(40, 167, 69);
     font-size: 24px;
     margin-bottom: 15px;
+    font-weight: bold;
 }
 
 /* Form Styling */
@@ -50,6 +52,7 @@ input {
     transition: background 0.3s ease;
     width: 100%;
     margin-bottom: 30px;
+    font-style: italic;
 }
 
 .btn:hover {
@@ -78,4 +81,50 @@ p a {
     text-decoration: underline;
 }
 
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 90%;
+        padding: 20px;
+        margin-top: 80px;
+    }
 
+    h2 {
+        font-size: 22px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 8px 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        max-width: 95%;
+        padding: 15px;
+        margin-top: 50px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
