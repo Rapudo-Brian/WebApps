@@ -23,7 +23,7 @@ def send_money(request):
             messages.error(request, "Invalid amount entered.")
             return redirect('send_money')
 
-        amount = Decimal(amount_str)  # ✅ Convert amount to Decimal
+        amount = Decimal(amount_str)  #
 
         try:
             recipient = CustomUser.objects.get(email=recipient_email)
@@ -36,8 +36,8 @@ def send_money(request):
             return redirect('send_money')
 
         with transaction.atomic():
-            request.user.balance -= amount  # ✅ No TypeError
-            recipient.balance += amount  # ✅ No TypeError
+            request.user.balance -= amount
+            recipient.balance += amount
             request.user.save()
             recipient.save()
             Transaction.objects.create(sender=request.user, recipient=recipient, amount=amount, transaction_type='SEND', status='COMPLETED')

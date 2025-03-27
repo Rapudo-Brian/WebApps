@@ -31,4 +31,3 @@ urlpatterns = [
     path('payapp/', include('payapp.urls')),  # Payapp URLs
     path('currency/', include('currency_api.urls')),  # Currency API URLs
 ]
-#
