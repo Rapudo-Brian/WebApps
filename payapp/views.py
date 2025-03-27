@@ -4,6 +4,7 @@ from .models import Transaction
 from register.models import CustomUser
 from django.db import transaction as django_transaction, transaction
 from django.contrib import messages
+from decimal import Decimal
 
 @login_required
 def dashboard(request):
@@ -11,11 +12,18 @@ def dashboard(request):
     transactions = Transaction.objects.filter(sender=user) | Transaction.objects.filter(recipient=user)
     return render(request, 'payapp/dashboard.html', {'transactions': transactions, 'balance': user.balance})
 
+
 @login_required
 def send_money(request):
     if request.method == 'POST':
         recipient_email = request.POST.get('recipient_email')
-        amount = float(request.POST.get('amount'))
+        amount_str = request.POST.get('amount')
+
+        if not amount_str or not amount_str.replace('.', '', 1).isdigit():
+            messages.error(request, "Invalid amount entered.")
+            return redirect('send_money')
+
+        amount = Decimal(amount_str)  # ✅ Convert amount to Decimal
 
         try:
             recipient = CustomUser.objects.get(email=recipient_email)
@@ -28,8 +36,8 @@ def send_money(request):
             return redirect('send_money')
 
         with transaction.atomic():
-            request.user.balance -= amount
-            recipient.balance += amount
+            request.user.balance -= amount  # ✅ No TypeError
+            recipient.balance += amount  # ✅ No TypeError
             request.user.save()
             recipient.save()
             Transaction.objects.create(sender=request.user, recipient=recipient, amount=amount, transaction_type='SEND', status='COMPLETED')
