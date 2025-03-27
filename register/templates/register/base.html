@@ -12,6 +12,7 @@
 </head>
     <body>
                     <div class="pages">
+                            <a href="{% url 'admin:index' %}">Admin Dashboard</a>
                             <a class="web-link" href="{% url 'home' %}">Web Payment Service</a>
                         {% if user.is_authenticated %}
                             <a href="{% url 'home' %}">Home</a>

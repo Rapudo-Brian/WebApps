@@ -15,7 +15,8 @@
         {{ form.as_p }}
         <button type="submit" class="btn">Login</button>
     </form>
-    <p >Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+    <p>Are you an admin? <a href="{%'admin/', admin.site.urls%}">Go to Admin Dashboard</a></p>
 </div>
 <footer class="footer">
     <p>© WebApp2025 Payment Service</p>
