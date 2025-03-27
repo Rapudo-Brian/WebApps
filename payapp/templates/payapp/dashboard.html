@@ -21,7 +21,7 @@
               <a href="{% url 'manage_requests' %}">Manage Requests</a>
               <a class="home" href="{% url 'home' %}">Home</a>
           </div>
-          <p class="hm">> Click on this link   <a href="http://127.0.0.1:8000/home/"><strong>Home</strong></a>   to go back to home page.</p>
+          <p class="hm">> Click <a href="{% url 'home' %}"><b>Home</b></a> to go back to home page.</p>
           <h3>Transactions</h3>
           <ul>
               {% for transaction in transactions %}
