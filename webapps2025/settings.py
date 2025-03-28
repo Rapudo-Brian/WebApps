@@ -22,8 +22,6 @@ SECRET_KEY = 'django-insecure-yq830(a4)x0ivo&u0fpp^nhju2r1qpm87_&4ozzsu_hfb*_=_7
 DEBUG = False  # Set to False in production
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-#ALLOWED_HOSTS = ['webapps-1m18.onrender.com']
-
 
 # Installed apps
 INSTALLED_APPS = [
@@ -122,8 +120,12 @@ STATICFILES_DIRS = [
 
 # Security Features (Important for Deployment)
 SECURE_BROWSER_XSS_FILTER = True
-X_FRAME_OPTIONS = 'DENY'
+X_FRAME_OPTIONS = 'DENY'# Coss-site scripting (XSS) protection
 SECURE_CONTENT_TYPE_NOSNIFF = True
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https') #Enable only in production
+#SECURE_SSL_REDIRECT = True #Redirects all HTTP to HTTPS. #Enable only in production
+#CSRF_COOKIE_SECURE = True #Secures CSRF cookies.  #Enable only in production
+#SESSION_COOKIE_SECURE = True #Secure session cookies.  #Enable only in production
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

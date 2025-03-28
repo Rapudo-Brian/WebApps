@@ -31,10 +31,8 @@ a {
 a:hover{
     color: red;
 }
-
-.p {
-    font-weight: bold;
-    margin-bottom: 60px;
+button {
+    padding: 10px;
 }
 footer {
     color: white;

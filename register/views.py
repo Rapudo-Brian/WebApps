@@ -6,11 +6,9 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .forms import RegistrationForm
-from django.core.mail import send_mail  # Import for email verification (future improvement)
+from decimal import Decimal
 from django.contrib.auth.models import update_last_login
-from django.utils.timezone import now
-from django.core.exceptions import ValidationError
-from django.contrib.auth.password_validation import validate_password
+from .models import CustomUser
 
 # Base currency and initial balance
 BASE_CURRENCY = "GBP"
@@ -28,36 +26,19 @@ def get_converted_amount(currency):
     except:
         return INITIAL_AMOUNT
 
-    # User Registration View with Secure Authentication
-
-
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
+            user_currency = form.cleaned_data.get('currency', 'GBP')
 
-            # Validate password strength
-            try:
-                validate_password(form.cleaned_data.get("password1"), user)
-            except ValidationError as e:
-                messages.error(request, e.messages[0])
-                return render(request, 'register/register.html', {'form': form})
-
-            user.balance = get_converted_amount(user.currency)
+            # Convert 750 GBP to the user's selected currency
+            user.balance = user.convert_currency(Decimal('750.00'), user_currency)
             user.save()
             login(request, user)
 
-            # Send a welcome email (optional, improve security later)
-            send_mail(
-                "Welcome to PayApp",
-                "Thank you for registering. Please verify your email to enable full functionality.",
-                settings.DEFAULT_FROM_EMAIL,
-                [user.email],
-                fail_silently=True,
-            )
-
-            messages.success(request, "Registration successful. Please verify your email.")
+            messages.success(request, "Registration successful!")
             return redirect('home')
         else:
             messages.error(request, "Registration failed. Please check your input.")
@@ -65,7 +46,6 @@ def register(request):
         form = RegistrationForm()
 
     return render(request, 'register/register.html', {'form': form})
-
 
 # Secure Login View with session security
 def login_user(request):
