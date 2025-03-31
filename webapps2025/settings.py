@@ -21,7 +21,7 @@ SECRET_KEY = 'django-insecure-yq830(a4)x0ivo&u0fpp^nhju2r1qpm87_&4ozzsu_hfb*_=_7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False  # Set to False in production
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','https://webapps-mgty.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'webapps-mgty.onrender.com']
 
 # Installed apps
 INSTALLED_APPS = [
